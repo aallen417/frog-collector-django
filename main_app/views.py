@@ -7,4 +7,4 @@ def home(request):
   return HttpResponse('<h1>Hello, world!</h1>')
 
 def about(request):
-  return HttpResponse('<h1>About the FrogCollector')
+  return render(request, 'about.html')
