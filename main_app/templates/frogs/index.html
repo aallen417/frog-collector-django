@@ -22,21 +22,23 @@
 <section class="card-container">
   {% for frog in frogs %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/sk8r-boi-cat.svg' %}" 
-            alt="A skater boy cat"
-          >
+      <a href="{% url "frog-detail" frog.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/sk8r-boi-cat.svg' %}" 
+              alt="A skater boy cat"
+            >
+          </div>
+          <h2 class="card-title">{{ frog.name }}</h2>
+          {% if frog.age > 0 %}
+            <p>A {{ frog.age }} year old {{ frog.species }}</p>
+          {% else %}
+            <p>A {{ frog.species }} tadpole.</p>
+          {% endif %}
+          <p><small>{{ frog.description }}</small></p>
         </div>
-        <h2 class="card-title">{{ frog.name }}</h2>
-        {% if frog.age > 0 %}
-          <p>A {{ frog.age }} year old {{ frog.species }}</p>
-        {% else %}
-          <p>A {{ frog.species }} tadpole.</p>
-        {% endif %}
-        <p><small>{{ frog.description }}</small></p>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>
