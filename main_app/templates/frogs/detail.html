@@ -26,6 +26,10 @@
       <h2>A {{ frog.species }} tadpole.</h2>
     {% endif %}
     <p>{{ frog.description }}</p>
+    <div class="frog-actions">
+      <a href="{% url "frog-update" frog.id %}" class="btn warn">Edit</a>
+      <a href="{% url "frog-delete" frog.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

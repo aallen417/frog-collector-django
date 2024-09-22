@@ -12,5 +12,5 @@ class Frog(models.Model):
     return self.name
   
   def get_absolute_url(self):
-      return reverse("frog_detail", kwargs={"frog_id": self.id})
+    return reverse('frog-detail', kwargs={'frog_id': self.id})
   
