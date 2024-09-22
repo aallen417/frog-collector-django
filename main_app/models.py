@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Frog(models.Model):
@@ -9,3 +10,7 @@ class Frog(models.Model):
   
   def __str__(self):
     return self.name
+  
+  def get_absolute_url(self):
+      return reverse("frog_detail", kwargs={"frog_id": self.id})
+  

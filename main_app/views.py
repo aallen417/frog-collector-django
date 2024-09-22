@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Frog
 
 # Create your views here.
@@ -16,3 +17,8 @@ def frog_index(request):
 def frog_detail(request, frog_id):
   frog = Frog.objects.get(id=frog_id)
   return render(request, 'frogs/detail.html', { 'frog': frog})
+
+class FrogCreate(CreateView):
+  model = Frog
+  fields = '__all__'
+  success_url = '/frogs/'
