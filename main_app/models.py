@@ -9,11 +9,22 @@ MEALS = (
   ('D', 'Dinner Flies')
 )
 
+class LilyPad(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+      return self.name
+  
+  def get_absolute_url(self):
+      return reverse("lilypad-detail", kwargs={"pk": self.id})
+
 class Frog(models.Model):
   name = models.CharField(max_length=100)
   species = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
   age = models.IntegerField()
+  lilypads = models.ManyToManyField(LilyPad)
 
   def __str__(self):
     return self.name
@@ -34,15 +45,4 @@ class Feeding(models.Model):
     return f"{self.get_meal_display()} on {self.date}"
   
   class Meta:
-    ordering = ['-date']
-
-class LilyPad(models.Model):
-  name = models.CharField(max_length=50)
-  color = models.CharField(max_length=20)
-
-  def __str__(self):
-      return self.name
-  
-  def get_absolute_url(self):
-      return reverse("lilypad-detail", kwargs={"pk": self.id})
-  
+    ordering = ['-date']  

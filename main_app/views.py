@@ -31,7 +31,7 @@ def add_feeding(request, frog_id):
 
 class FrogCreate(CreateView):
   model = Frog
-  fields = '__all__'
+  fields = ['name', 'species', 'description', 'age']
   success_url = '/frogs/'
 
 class FrogUpdate(UpdateView):
