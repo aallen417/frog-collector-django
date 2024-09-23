@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Frog
+from .forms import FeedingForm
 
 # Create your views here.
 
@@ -16,7 +17,16 @@ def frog_index(request):
 
 def frog_detail(request, frog_id):
   frog = Frog.objects.get(id=frog_id)
-  return render(request, 'frogs/detail.html', { 'frog': frog})
+  feeding_form = FeedingForm()
+  return render(request, 'frogs/detail.html', { 'frog': frog, 'feeding_form': feeding_form})
+
+def add_feeding(request, frog_id):
+  form = FeedingForm(request.POST)
+  if form.is_valid():
+    new_feeding = form.save(commit=False)
+    new_feeding.frog_id = frog_id
+    new_feeding.save()
+  return redirect('frog-detail', frog_id=frog_id)
 
 class FrogCreate(CreateView):
   model = Frog
