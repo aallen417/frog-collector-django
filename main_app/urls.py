@@ -13,4 +13,6 @@ urlpatterns = [
   path('lilypads/create/', views.LilyPadCreate.as_view(), name='lilypad-create'),
   path('lilypads/<int:pk>/', views.LilyPadDetail.as_view(), name='lilypad-detail'),
   path('lilypads/', views.LilyPadList.as_view(), name='lilypad-index'),
+  path('lilypads/<int:pk>/update/', views.LilyPadUpdate.as_view(), name='lilypad-update'),
+  path('lilypads/<int:pk>/delete/', views.LilyPadDelete.as_view(), name='lilypad-delete'),
 ]

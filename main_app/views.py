@@ -51,3 +51,11 @@ class LilyPadList(ListView):
 
 class LilyPadDetail(DetailView):
   model = LilyPad
+
+class LilyPadUpdate(UpdateView):
+  model = LilyPad
+  fields = ['name', 'color']
+
+class LilyPadDelete(DeleteView):
+  model = LilyPad
+  success_url = '/lilypads/'

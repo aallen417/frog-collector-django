@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/lilypads/lilypad-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+  
+<div class="card" style="border-color: {{ lilypad.color }}">
+  <div class="card-bg" style="background-color: {{ lilypad.color }}"></div>
+  <div class="card-content">
+    <h2>{{ lilypad.name }}</h2>
+    <p>A {{ lilypad.color }} lily pad</p>
+  </div>
+</div>
+<a href="{% url 'lilypad-update' lilypad.id %}" class="btn warn">Edit</a>
+<a href="{% url 'lilypad-delete' lilypad.id %}" class="btn danger">Delete</a>
+
+{% endblock %}
