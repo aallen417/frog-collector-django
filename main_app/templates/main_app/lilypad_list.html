@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/lilypads/lilypad-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Lily pads</h1>
+  <img src="{% static 'images/string.svg' %}" alt="A ball of string" />
+  <img src="{% static 'images/mouse.svg' %}" alt="A mouse" />
+  <img src="{% static 'images/post.svg' %}" alt="A scratching post" />
+  <img src="{% static 'images/fish.svg' %}" alt="A fishy toy" />
+</section>
+
+<section class="card-container">
+  {% for lilypad in lilypad_list %}
+  <div class="card" style="border-color: {{ lilypad.color }}">
+    <div class="card-bg" style="background-color: {{ lilypad.color }}"></div>
+    <a href="{% url 'lilypad-detail' lilypad.id %}">
+      <div class="card-content">
+        <h2>{{ lilypad.name }}</h2>
+        <p>A {{ lilypad.color }} lilypad</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

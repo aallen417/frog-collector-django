@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Frog
+from .models import Frog, LilyPad
 from .forms import FeedingForm
 
 # Create your views here.
@@ -40,3 +41,13 @@ class FrogUpdate(UpdateView):
 class FrogDelete(DeleteView):
   model = Frog
   success_url = '/frogs/'
+
+class LilyPadCreate(CreateView):
+  model = LilyPad
+  fields = '__all__'
+
+class LilyPadList(ListView):
+  model = LilyPad
+
+class LilyPadDetail(DetailView):
+  model = LilyPad

@@ -10,4 +10,7 @@ urlpatterns = [
   path('frogs/<int:pk>/update', views.FrogUpdate.as_view(), name='frog-update'),
   path('frogs/<int:pk>/delete', views.FrogDelete.as_view(), name='frog-delete'),
   path('frogs/<int:frog_id>/add-feeding', views.add_feeding, name='add-feeding'),
+  path('lilypads/create/', views.LilyPadCreate.as_view(), name='lilypad-create'),
+  path('lilypads/<int:pk>/', views.LilyPadDetail.as_view(), name='lilypad-detail'),
+  path('lilypads/', views.LilyPadList.as_view(), name='lilypad-index'),
 ]
