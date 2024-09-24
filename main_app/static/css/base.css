@@ -26,11 +26,11 @@ body {
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
     'Helvetica Neue', sans-serif;
   min-height: 100vh;
-  --nav-bg: rgba(104, 197, 248, .7);
-  --nav-bg-ff: rgba(104, 197, 248, .9);
-  --borders: rgb(36, 116, 248) solid 2px;
+  --nav-bg: rgba(126, 248, 104, 0.7);
+  --nav-bg-ff: rgba(104, 248, 111, 0.9);
+  --borders: rgb(36, 248, 71) solid 2px;
   --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(16, 56, 158);
+  --link-hover-color: rgb(16, 158, 68);
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
   --submit: rgb(26, 128, 0);
@@ -97,6 +97,11 @@ nav li {
   margin: auto;
   padding: 10px 20px 0;
   max-width: 500px;
+}
+
+.header-img {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .page-header {
